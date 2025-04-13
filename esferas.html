@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Esferas Animadas</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .person {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-image: url('clown-1295519_1280.png'); /* substitua pela imagem desejada */
+      background-size: cover;
+      background-position: center;
+      z-index: 2;
+
+      animation: move-side 2s infinite ease-in-out;
+    }
+
+    .sphere {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    .sphere.left {
+      left: 0;
+      top: 50%;
+      background-color: red;
+      animation-name: move-up-down;
+      animation-delay: 0s;
+    }
+
+    .sphere.right {
+      right: 0;
+      top: 50%;
+      background-color: blue;
+      animation-name: move-up-down;
+      animation-delay: -1s;
+    }
+
+    @keyframes move-up-down {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-100px);
+      }
+    }
+
+    @keyframes move-side {
+      0%, 100% {
+        transform: translate(-50%, -50%) translateX(0px);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateX(20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sphere left"></div>
+    <div class="person"></div>
+    <div class="sphere right"></div>
+  </div>
+</body>
+</html>
+
